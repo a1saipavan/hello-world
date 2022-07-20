@@ -30,9 +30,9 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: apprunner
-          IMAGE_TAG: ${{ build-image }}
+          IMAGE_TAG: ${{ github.sha }}
         run: |
-          Working-directory: new
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY: .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$id
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$id"
+          working-directory: new
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
