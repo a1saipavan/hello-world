@@ -32,6 +32,6 @@ jobs:
           ECR_REPOSITORY: apprunner
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:pavan .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:pavan
-          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:pavan"
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s) .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$(date +%s)"
