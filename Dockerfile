@@ -1,32 +1,17 @@
-#
-# Ubuntu Dockerfile
-#
-# https://github.com/dockerfile/ubuntu
-#
-
 # Pull base image.
-FROM ubuntu:14.04
+FROM dockerfile/ubuntu
 
-# Install.
+# Install Java.
 RUN \
-  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
-  apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
+  apt-get install -y openjdk-7-jre && \
   rm -rf /var/lib/apt/lists/*
 
-# Add files.
-ADD root/.bashrc /root/.bashrc
-ADD root/.gitconfig /root/.gitconfig
-ADD root/.scripts /root/.scripts
-
-# Set environment variables.
-ENV HOME /root
-
 # Define working directory.
-WORKDIR /root
+WORKDIR /data
+
+# Define commonly used JAVA_HOME variable
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 # Define default command.
 CMD ["bash"]
