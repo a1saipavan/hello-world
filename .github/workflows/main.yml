@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+        working-directory: hello-world/new/
           
       - name: Configure AWS credentials
         id: aws-credentials
@@ -32,7 +33,6 @@ jobs:
           ECR_REPOSITORY: apprunner
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          working-directory: hello-world/new/
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
