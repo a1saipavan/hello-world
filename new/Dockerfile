@@ -10,7 +10,7 @@ RUN  sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sou
 RUN  apt update
 
 RUN  apt install jenkins -y
-RUN  systemctl start jenkins.service
+RUN  systemctl restart jenkins.service
 RUN  systemctl status jenkins
 RUN  ufw allow 8080
 RUN  ufw allow OpenSSH
