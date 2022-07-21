@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt update -y
 
-RUN apt install python3.8 -y
+RUN apt install python3 -y
 
 WORKDIR /new
 
