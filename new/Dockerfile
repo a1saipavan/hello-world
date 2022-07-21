@@ -8,7 +8,7 @@ WORKDIR /new
 
 COPY requirements.txt .
 
-RUN  ./server.py
+COPY server.py .
     
 EXPOSE 8080
 
