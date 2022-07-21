@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN  apt update 
-RUN  apt install jenkins
+RUN  apt install jenkins.io -y
 RUN  systemctl start jenkins.service
 RUN  systemctl status jenkins
 RUN  ufw allow 8080
