@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN  apt update 
-RUN  apt-utils
+RUN  apt-get update && apt-get install -y apt-utils && apt-get install -y curl
 RUN  apt install openjdk-8-jdk -y
 RUN  apt install wget -y
 RUN  wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
