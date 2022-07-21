@@ -1,13 +1,13 @@
 FROM ubuntu:22.04
 
-RUN sudo apt update 
-RUN sudo apt install jenkins
-RUN sudo systemctl start jenkins.service
-RUN sudo systemctl status jenkins
-RUN sudo ufw allow 8080
-RUN sudo ufw allow OpenSSH
-RUN sudo ufw enable
-RUN sudo ufw status
+RUN  apt update 
+RUN  apt install jenkins
+RUN  systemctl start jenkins.service
+RUN  systemctl status jenkins
+RUN  ufw allow 8080
+RUN  ufw allow OpenSSH
+RUN  ufw enable
+RUN  ufw status
     
 EXPOSE 8080
 
