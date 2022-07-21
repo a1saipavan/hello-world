@@ -6,6 +6,8 @@ RUN \
   apt-get update && \
   apt-get install -y java-* && \
   rm -rf /var/lib/apt/lists/*
+  
+EXPOSE 8080
 
 # Define working directory.
 WORKDIR /data
