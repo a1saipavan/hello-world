@@ -6,7 +6,7 @@ RUN apt install python3 -y
 
 WORKDIR /new
 
-RUN python server.py
+RUN python3 server.py
     
 EXPOSE 8080
 
